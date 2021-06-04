@@ -1,0 +1,11 @@
+framework module drawLib {
+  umbrella header "drawLib.h"
+
+  export *
+  module * { export * }
+}
+
+module drawLib.Swift {
+    header "drawLib-Swift.h"
+    requires objc
+}

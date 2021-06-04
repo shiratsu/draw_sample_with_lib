@@ -1,0 +1,208 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-ios11.4 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name drawLib
+import CoreGraphics
+import Swift
+import UIKit
+@_exported import drawLib
+@objc @_inheritsConvenienceInitializers open class ColorMenuViewController : UIKit.UIViewController {
+  @objc @IBOutlet weak open var titleColor: UIKit.UILabel!
+  @objc @IBOutlet weak open var colorPicker: UIKit.UICollectionView!
+  @objc @IBOutlet weak open var colorPickerLayout: UIKit.UICollectionViewFlowLayout!
+  @objc @IBOutlet weak open var colorButton: UIKit.UIButton!
+  open var tag: Swift.Int
+  open var penBold: Swift.Float
+  open var penColor: UIKit.UIColor
+  open var intMode: Swift.Int
+  weak open var delegatePenMenu: drawLib.PenMenuProtocol?
+  weak open var delegateAfterPenMenu: drawLib.AfterPenMenuProtocol?
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension ColorMenuViewController : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate {
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BoldSlidder : UIKit.UISlider {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class CustomImageView : UIKit.UIImageView {
+  @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic public init(image: UIKit.UIImage?)
+  @available(iOS 3.0, *)
+  @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class DeleteViewController : UIKit.UIViewController {
+  @objc @IBOutlet weak open var deleteLabel: UIKit.UILabel!
+  @objc @IBOutlet weak open var cancelLabel: UIKit.UILabel!
+  @objc @IBOutlet weak open var reseizeLabel: UIKit.UILabel!
+  weak open var deletedView: UIKit.UIView?
+  @objc override dynamic open func viewDidLoad()
+  @objc open func deleteAction(_ sender: Swift.AnyObject)
+  @objc open func cancelAction(_ sender: Swift.AnyObject)
+  @objc open func resizeAction(_ sender: Swift.AnyObject)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DrawLib {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CustomTextField : UIKit.UITextField {
+  @objc deinit
+}
+extension CustomTextField : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textFieldShouldBeginEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+}
+@objc @_inheritsConvenienceInitializers open class DrawMenuView : UIKit.UIView {
+  open var penBoldLabel: UIKit.UILabel!
+  open var penColorView: UIKit.UIView!
+  open var textButton: UIKit.UIButton!
+  open var imageButton: UIKit.UIButton!
+  open var textBoldLabel: UIKit.UILabel!
+  open var fontLabel: UIKit.UILabel!
+  open var textColorView: UIKit.UIView!
+  open var undoButton: UIKit.UIButton!
+  @objc @IBOutlet open var menuView: UIKit.UIScrollView!
+  open var strImgPenMenu: Swift.String?
+  open var strImgTextMenu: Swift.String?
+  open var strImgImageMenu: Swift.String?
+  weak open var penActionDelegate: drawLib.PenActionProtocol?
+  weak open var uiObjectDelegate: drawLib.UIObjectProtocol?
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  public func loadNib()
+  @objc deinit
+}
+extension DrawMenuView : drawLib.AfterPenMenuProtocol {
+  public func afterSetting()
+}
+@objc @_inheritsConvenienceInitializers open class UIFontViewController : UIKit.UIViewController {
+  @objc @IBOutlet open var fontView: UIKit.UITableView!
+  weak open var delegateAfterPenMenu: drawLib.AfterPenMenuProtocol?
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIFontViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+public enum PenMenuMode : Swift.Int {
+  case pencil
+  case string
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct PencilValue {
+}
+public struct CharValue {
+}
+@objc @_inheritsConvenienceInitializers open class BoldMenuViewController : UIKit.UIViewController {
+  @objc @IBOutlet weak open var titlePenBold: UIKit.UILabel!
+  @objc @IBOutlet weak open var boldSlider: UIKit.UISlider!
+  @objc @IBOutlet weak open var closeButton: UIKit.UIButton!
+  weak open var delegatePenMenu: drawLib.PenMenuProtocol?
+  weak open var delegateAfterPenMenu: drawLib.AfterPenMenuProtocol?
+  open var intMode: Swift.Int
+  @objc override dynamic open func viewDidLoad()
+  @objc open func sliderDidChangeValue(_ sender: UIKit.UISlider)
+  @objc @IBAction open func closeAction(sender: Swift.AnyObject)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PenActionProtocol : AnyObject {
+  func showPenBold()
+  func showPenColor()
+  func showFontMenu()
+  func showFontColorMenu()
+  func showTextBold()
+  func showImagePicker()
+}
+public protocol PenMenuProtocol : AnyObject {
+  func updatePencilSetting()
+}
+public protocol UIObjectProtocol : AnyObject {
+  func addViewObject()
+  func addTextField()
+  func undoAction()
+}
+public protocol AfterPenMenuProtocol : AnyObject {
+  func afterSetting()
+}
+public protocol CustomViewProtocol : AnyObject {
+  func dragMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+}
+public protocol DeletePopover : AnyObject {
+  func showDelPopOver(_ targetView: UIKit.UIView)
+}
+extension UIView : drawLib.CustomViewProtocol {
+  public func dragMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+}
+public struct Drawing {
+  public var color: UIKit.UIColor
+  public var points: [CoreGraphics.CGPoint]
+}
+extension Array {
+  public subscript(safe index: Swift.Array<Element>.Index) -> Element? {
+    get
+  }
+}
+extension UIView {
+  public var parentViewController: UIKit.UIViewController? {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class DragableDrawingView : UIKit.UIView, UIKit.UITextFieldDelegate {
+  open var isDraw: Swift.Bool
+  open var currentDrawing: drawLib.Drawing?
+  open var finishedDrawings: [drawLib.Drawing]
+  open var finishedDepth: [CoreGraphics.CGFloat]
+  open var currentColor: UIKit.UIColor
+  open var currentDepth: CoreGraphics.CGFloat
+  @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
+  @objc override dynamic open func addSubview(_ view: UIKit.UIView)
+  @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  open func clear()
+  open func undo()
+  open func setDrawingColor(color: UIKit.UIColor)
+  open func stroke(drawing: drawLib.Drawing, depth: CoreGraphics.CGFloat)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension DragableDrawingView : drawLib.PenMenuProtocol {
+  public func updatePencilSetting()
+}
+extension DragableDrawingView : drawLib.UIObjectProtocol {
+  public func addViewObject()
+  public func addTextField()
+  public func undoAction()
+}
+extension DragableDrawingView {
+  public func finishEditing()
+  public func beginEditing()
+}
+extension DragableDrawingView : UIKit.UIImagePickerControllerDelegate, UIKit.UINavigationControllerDelegate {
+  @objc dynamic public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [UIKit.UIImagePickerController.InfoKey : Any])
+  @objc dynamic public func imagePickerControllerDidCancel(_ picker: UIKit.UIImagePickerController)
+}
